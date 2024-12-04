@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    aside {
+      width: 20%;
+      background-color: #222;
+      color: white;
+      height: 100vh;
+      padding: 20px 10px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+    aside nav ul {
+      list-style: none;
+      padding: 0;
+    }
+    aside nav ul li {
+      margin: 15px 0;
+    }
+    aside nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    aside nav ul li a:hover {
+      background-color: #444;
+    }
+    main {
+      width: 80%;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 10px;
+      max-width: 800px;
+      margin: auto;
+    }
+    form label {
+      text-align: right;
+      margin-top: 5px;
+    }
+    form input, form select, form textarea, form button {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    form button {
+      grid-column: 2;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #555;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table th, table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    table th {
+      background-color: #f4f4f4;
+    }
+    .action-buttons button {
+      background-color: black;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin: 2px;
+    }
+    .action-buttons button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside>
+    <nav>
+      <ul>
+        <li><a href="#products">Manage Products</a></li>
+        <li><a href="#categories">Manage Categories</a></li>
+        <li><a href="#blogs">Manage Blogs</a></li>
+        <li><a href="#deals">Manage Deals</a></li>
+        <li><a href="#contacts">Manage Contacts</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Products Section -->
+    <section id="products">
+      <h1>Manage Products</h1>
+      <form>
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name" placeholder="Enter product name" required>
+
+        <label for="product-image">Upload Image:</label>
+        <input type="file" id="product-image" required>
+
+        <label for="product-category">Category:</label>
+        <select id="product-category">
+          <option value="electronics">Electronics</option>
+          <option value="health">Health</option>
+          <option value="fashion">Fashion</option>
+        </select>
+
+        <label for="product-description">Description:</label>
+        <textarea id="product-description" rows="4" placeholder="Enter product description"></textarea>
+
+        <label for="product-price">Price:</label>
+        <input type="number" id="product-price" placeholder="Enter product price" required>
+
+        <button type="submit">Add Product</button>
+      </form>
+
+      <!-- Products Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sample Product</td>
+            <td>Electronics</td>
+            <td>$100</td>
+            <td>This is a sample product.</td>
+            <td class="action-buttons">
+              <button>Edit</button>
+              <button>Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories">
+      <h1>Manage Categories</h1>
+      <form>
+        <label for="category-name">Category Name:</label>
+        <input type="text" id="category-name" placeholder="Enter category name" required>
+        <button type="submit">Add Category</button>
+      </form>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs">
+      <h1>Manage Blogs</h1>
+      <form>
+        <label for="blog-title">Blog Title:</label>
+        <input type="text" id="blog-title" placeholder="Enter blog title" required>
+
+        <label for="blog-image">Upload Image:</label>
+        <input type="file" id="blog-image" required>
+
+        <label for="blog-content">Content:</label>
+        <textarea id="blog-content" rows="6" placeholder="Enter blog content"></textarea>
+
+        <button type="submit">Add Blog</button>
+      </form>
+    </section>
+
+    <!-- Deals Section -->
+    <section id="deals">
+      <h1>Manage Deals</h1>
+      <form>
+        <label for="deal-name">Deal Name:</label>
+        <input type="text" id="deal-name" placeholder="Enter deal name" required>
+
+        <label for="deal-discount">Discount (%):</label>
+        <input type="number" id="deal-discount" placeholder="Enter discount percentage" required>
+
+        <button type="submit">Add Deal</button>
+      </form>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts">
+      <h1>Manage Contacts</h1>
+      <form>
+        <label for="contact-name">Contact Name:</label>
+        <input type="text" id="contact-name" placeholder="Enter contact name" required>
+
+        <label for="contact-email">Email:</label>
+        <input type="email" id="contact-email" placeholder="Enter contact email" required>
+
+        <label for="contact-phone">Phone:</label>
+        <input type="text" id="contact-phone" placeholder="Enter contact phone" required>
+
+        <button type="submit">Add Contact</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

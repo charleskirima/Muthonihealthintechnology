@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+/* Header */
+header {
+  position: relative;
+  width: 100%;
+  height: 40vh; /* 30% of the viewport height */
+  background: url("Images/IMG-20241201-WA0001.jpg") no-repeat center center;
+  background-size: cover; /* Ensures the image covers the header area */
+}
+
+    .search-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      width: 60%;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 0;
+    }
+
+    .search-bar button {
+      background-color: #000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 0;
+    }
+
+    .search-bar button:hover {
+      background-color: #f4a261;
+    }
+
+    /* Menu */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 15px 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      color: #f4a261;
+    }
+
+
+
+        nav2 button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .category-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .category-box, .product-box {
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .category-box img, .product-box img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 70%;
+            height: 70%;
+            overflow-y: auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+}
+
+footer h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-about,
+.footer-contact,
+.footer-newsletter {
+  flex: 1 1 30%;
+  margin: 10px;
+}
+
+.footer-legal {
+  flex: 1 1 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.social-icons img {
+  width: 24px;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+footer a {
+  color: #1abc9c;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Newsletter Form */
+.footer-newsletter form {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.footer-newsletter input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+}
+
+.footer-newsletter button {
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.footer-newsletter button:hover {
+  background-color: #16a085;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* Welcome Section */
+.welcome {
+  padding: 10px;
+  text-align: center;
+  background-color: #097969;
+  color: #4F7942; /* Text color (change as needed) */
+  font-family: 'Arial', sans-serif; /* Font (change as needed) */
+  font-size: 18px; /* Text size (adjust as needed) */
+  line-height: 1.4; /* Adjust spacing between lines */
+  height: auto; /* Adjust height as needed, or set specific value like '200px' */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 0; /* Ensure no bottom margin causing a gap */
+}
+
+/* Example header text styling within the welcome section */
+.welcome h1 {
+  font-size: 26px; /* Adjust header text size */
+  font-weight: bold; /* Adjust weight of the header */
+  color: #ffd700; /* Specific color for header text (golden, as an example) */
+}
+
+/* Example general text styling within the welcome section */
+.welcome p {
+  font-size: 20px; /* Adjust paragraph text size */
+  color: #ffffff; /* General text color */
+}
+
+        /* Center container */
+        .button-container {
+            display: flex !important; /* Override display settings */
+            justify-content: center !important; /* Ensure centering horizontally */
+            align-items: center !important; /* Ensure centering vertically */
+            height: 100vh !important; /* Full screen height */
+        }
+
+        /* Button styling */
+        button.health {
+            background-color: #4CAF50 !important; /* Green */
+            color: white !important;
+            padding: 10px 20px !important;
+            border: none !important;
+            border-radius: 5px !important;
+            width: 300px !important; /* Custom width */
+            text-align: center !important;
+            cursor: pointer !important;
+        }
+
+        button.technology {
+            background-color: #2196F3 !important; /* Blue */
+            color: white !important;
+            padding: 10px 20px !important;
+            border: none !important;
+            border-radius: 5px !important;
+            width: 300px !important; /* Custom width */
+            text-align: center !important;
+            cursor: pointer !important;
+            margin-left: 10px !important; /* Spacing between buttons */
+        }
+
+        /* Optional hover effect */
+        button.health:hover, button.technology:hover {
+            opacity: 0.9 !important;
+        }
+
+
+
+        .exit-button {
+            position: absolute; /* Allows exact positioning inside the container */
+            bottom: 20px; /* Positioned 20px from the bottom */
+            left: 50%; /* Move to the horizontal center */
+            transform: translateX(-50%); /* Center the button horizontally */
+            background-color: #FF6347; /* Tomato color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hover effect */
+        .exit-button:hover {
+            background-color: #FF4500; /* Darker shade of red */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="categories.html">CATEGORIES</a>
+    <a href="resources.html">RESOURCES</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
+  
+    <!-- Welcome Section -->
+  <section class="welcome">
+    <h1>Welcome to HealthInTechHub</h1>
+    <p>Welcome to HealthInTechHub, your trusted source for reviews, insights, and recommendations on health and technology products. Discover how cutting-edge gadgets and health solutions can transform your life, all backed by AI-enhanced tools for a seamless user experience.
+</p>
+  </section>
+  
+  
+    <nav>
+        <button class="health" id="healthBtn" onclick="showHealth()">Health & Wellness</button>
+        <button class="technology" id="techBtn" onclick="showTechnology()">Technology</button>
+    </nav>
+
+    <!-- Categories Section -->
+    <section id="categories">
+        <!-- Health & Wellness Categories -->
+        <div id="healthCategories" class="category-group">
+            <div class="category-box" onclick="openCategoryModal('Supplements', 'Health')">
+<img src="Images/file-G2ihopGVMEgnooQuEHNLKz.webp" alt="Description of Image">
+                <h3>Supplements</h3>
+            </div>
+            <div class="category-box" onclick="openCategoryModal('Fitness', 'Health')">
+                <img src="Images/file-UiJYVZSm5qCeZjN4ucbwvL.webp" alt="Fitness">
+                <h3>Fitness</h3>
+            </div>
+            <div class="category-box" onclick="openCategoryModal('Nutrition', 'Health')">
+                <img src="Images/shopping (98).webp" alt="Nutrition">
+                <h3>Nutrition</h3>
+            </div>
+                  <div class="category-box" onclick="openCategoryModal('Nutrition', 'Health')">
+                <img src="Images/file-UiJYVZSm5qCeZjN4ucbwvL.webp" alt="Nutrition">
+                <h3>Nutrition</h3>
+            </div> 
+            
+                       <div class="category-box" onclick="openCategoryModal('Nutrition', 'Health')">
+                <img src="Images/file-UiJYVZSm5qCeZjN4ucbwvL.webp" alt="Nutrition">
+                <h3>Nutrition</h3>
+            </div>
+                        <div class="category-box" onclick="openCategoryModal('Nutrition', 'Health')">
+                <img src="Images/file-UiJYVZSm5qCeZjN4ucbwvL.webp" alt="Nutrition">
+                <h3>Nutrition</h3>
+            </div>
+
+            
+            
+        </div>
+
+        <!-- Technology Categories -->
+        <div id="techCategories" class="category-group" style="display: none;">
+            <div class="category-box" onclick="openCategoryModal('Smart Watches', 'Tech')">
+<img src="Images/file-QqFWLFULucRR5EjYyp74mV.webp" alt="Description of Image">
+                <h3>Smart Watches</h3>
+            </div>
+            <div class="category-box" onclick="openCategoryModal('Phones', 'Tech')">
+                <img src="Images/Calm_(company)_logo.svg.png" alt="Phones">
+                <h3>Health Applications</h3>
+            </div>
+            <div class="category-box" onclick="openCategoryModal('Gym Equipment', 'Tech')">
+                <img src="Images/61Unk55BvAL._AC_UL640_FMwebp_QL65_.webp" alt="Gym Equipment">
+                <h3>Smart Rings</h3>
+            </div>
+                        <div class="category-box" onclick="openCategoryModal('Gym Equipment', 'Tech')">
+                <img src="Images/download (1z).webp" alt="Gym Equipment">
+                <h3>Gym Equipment</h3>
+            </div>
+
+            
+
+            
+        </div>
+    </section>
+
+    <!-- Category Modal -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <div id="productGrid" class="product-grid"></div>
+            <button class="exit-button" onclick="closeCategoryModal()">Exit</button>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <h2 id="productTitle"></h2>
+            <p id="productDescription"></p>
+            <p><strong>Price:</strong> <span id="productPrice"></span></p>
+            <p><strong>Contact:</strong> <span id="productContact"></span></p>
+            <button class="exit-button" onclick="closeProductModal()">Exit</button>
+        </div>
+    </div>
+
+<footer>
+  <div class="footer-about">
+    <h3>About Us</h3>
+    <p>At HealthInTechHub, we’re passionate about empowering individuals to make informed decisions in health and technology.</p>
+  </div>
+
+  <div class="footer-contact">
+    <h3>Contact Us</h3>
+    <p>Phone: <a href="tel:+254 773 523910">+254 773 523910</a></p>
+    <p>Email: <a href="mailto:healthintechhub@gmail.com">healthintechhub@gmail.com</a></p>
+    <div class="social-icons">
+      <a href="#"><img src="Images/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="Images/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="Images/whatsapp.png" alt="whatsapp"></a>
+      <a href="#"><img src="Images/instagram.png" alt="instagram"></a>
+      <a href="#"><img src="Images/new-call.png" alt="call"></a>
+    </div>
+  </div>
+
+  <div class="footer-newsletter">
+    <h3>Newsletter</h3>
+    <p>Subscribe to stay updated on the latest health and technology trends.</p>
+    <form>
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+  <div class="footer-legal">
+    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    <p>© 2024 HealthInTechHub. All Rights Reserved.</p>
+  </div>
+</footer>
+
+    <script>
+        const products = {
+            Health: {
+                Supplements: [
+                    { name: "ARGNINE", price: "KSHs10", contact: "+254 773 523910", image: "Images/images 3.jpeg" },
+                     { name: "Pre Workout", price: "KSHs10", contact: "+254 773 523910", image: "Images/7a.jpg" },
+                     { name: "ABE Pump", price: "KSHs10", contact: "+254 773 523910", image: "Images/7185Op6iL._AC_SX679_.jpg" },                   
+                    { name: "Omega-3", price: "KSHs15", contact: "+254 773 523910", image: "Images/download.jpeg" }
+                ],
+                Fitness: [
+                    { name: "5KGs Dumbells", price: "KSHs20", contact: "+254 773 523910", image: "Images/download.webp" },
+                    { name: "3 KGs DUmbells", price: "KSHs20", contact: "+254 773 523910", image: "Images/shopping (78).webp" },
+                     { name: "6 KGs", price: "KSHs20", contact: "+254 773 523910", image: "Images/download 6.webp" },
+                    { name: "Yoga mat 6×5", price: "KSHs25", contact: "+254 773 523910", image: "Images/download (1677).jpeg" }
+                ],
+                Nutrition: [
+                    { name: "Natural Nuts", price: "KSHs30", contact: "+254 773 523910", image: "Images/download (100.webp" },
+                    { name: "Kajuju Snacks", price: "KSHs30", contact: "+254 773 523910", image: "Images/download (66).webp" },
+                    { name: "Jumbo Oats", price: "KSHs30", contact: "+254 773 523910", image: "Images/shopping (70).webp" },
+                    { name: "Granola Bars", price: "KSHs5", contact: "+254 773 523910", image: "Images/granola.jpg" }
+                ]
+            },
+            Tech: {
+                "Smart Watches": [
+                    { name: "Apple Watch", price: "KSHs400", contact: "+254 773 523910", image: "Images/download3.jpeg" },
+                    { name: "Apple Watch", price: "KSHs400", contact: "+254 773 523910", image: "Images/download3.jpeg" },
+                    { name: "Apple Watch", price: "KSHs400", contact: "+254 773 523910", image: "Images/download3.jpeg" },
+                    { name: "Samsung Watch", price: "KSHs300", contact: "+254 773 523910", image: "Images/download (1).jpeg" }
+                ],
+                Phones: [
+                    { name: "Talk Space App for Android and Apple", price: "KSHs1000", contact: "+254 773 523910", image: "Images/talkspace-logo.jpg" },
+                    { name: "My Fittness Pal for Android and Apple", price: "KSHs1000", contact: "+254 773 523910", image: "Images/065uaiCApaX7sVvWBH2jmtJ-25.fit_scale.size_760x427.jpg" },
+                    { name: "Calm for Android and Apple", price: "KSHs1000", contact: "+254 773 523910", image: "Images/Calm_(company)_logo.svg.png" },
+                    { name: "Head Space App for Android and Apple", price: "KSHs900", contact: "+254 773 523910", image: "Images/ae944d49052b2901f3970042db4f12ea.jpg" }
+                ],
+                "Gym Equipment": [
+                    { name: "Treadmill", price: "KSHs700", contact: "+254 773 523910", image: "Images/download (1b).webp" },
+                    { name: "Treadmill", price: "KSHs700", contact: "+254 773 523910", image: "Images/download (1z).webp" },
+                    { name: "Treadmill", price: "KSHs700", contact: "+254 773 523910", image: "Images/download (1s).webp" },
+                    { name: "Rowing Machine", price: "KSHs800", contact: "+254 773 523910", image: "Images/download (1h).webp" }
+                ]
+            }
+        };
+
+        function showHealth() {
+            document.getElementById('healthCategories').style.display = 'grid';
+            document.getElementById('techCategories').style.display = 'none';
+        }
+
+        function showTechnology() {
+            document.getElementById('healthCategories').style.display = 'none';
+            document.getElementById('techCategories').style.display = 'grid';
+        }
+
+        function openCategoryModal(category, group) {
+            const modal = document.getElementById('categoryModal');
+            document.getElementById('modalTitle').textContent = category;
+            document.getElementById('modalDescription').textContent = `Explore our best products in the ${category} category.`;
+
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = "";
+
+            products[group][category].forEach(product => {
+                const productBox = document.createElement('div');
+                productBox.className = 'product-box';
+                productBox.onclick = () => openProductModal(product);
+
+                productBox.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h4>${product.name}</h4>
+                `;
+
+                productGrid.appendChild(productBox);
+            });
+
+            modal.style.display = 'flex';
+        }
+
+        function closeCategoryModal() {
+            document.getElementById('categoryModal').style.display = 'none';
+        }
+
+        function openProductModal(product) {
+            const modal = document.getElementById('productModal');
+            document.getElementById('productTitle').textContent = product.name;
+          document.getElementById('productDescription').textContent = `    <p>OMEGA 3${product.name}.`;
+            document.getElementById('productPrice').textContent = product.price;
+            document.getElementById('productContact').textContent = product.contact;
+
+            modal.style.display = 'flex';
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

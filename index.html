@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthInTechHub</title>
+  <style>
+    /* General Styles */
+    body {
+ /* Global Styles - Reset margins/paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and borders are accounted for in element size */
+}
+
+/* Welcome Section */
+.welcome {
+  padding: 30px;
+  text-align: center;
+  background-color: #097969;
+  color: #4F7942; /* Text color (change as needed) */
+  font-family: 'Arial', sans-serif; /* Font (change as needed) */
+  font-size: 18px; /* Text size (adjust as needed) */
+  line-height: 1.8; /* Adjust spacing between lines */
+  height: auto; /* Adjust height as needed, or set specific value like '200px' */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 0; /* Ensure no bottom margin causing a gap */
+}
+
+/* Example header text styling within the welcome section */
+.welcome h1 {
+  font-size: 26px; /* Adjust header text size */
+  font-weight: bold; /* Adjust weight of the header */
+  color: #ffd700; /* Specific color for header text (golden, as an example) */
+}
+
+/* Example general text styling within the welcome section */
+.welcome p {
+  font-size: 20px; /* Adjust paragraph text size */
+  color: #ffffff; /* General text color */
+}
+
+/* Carousel Section */
+.carousel {
+  width: 100vw; /* Full viewport width */
+  height: auto; /* Adjust height to content size */
+  overflow: hidden;
+  position: relative;
+  margin: 0; /* Remove any additional space */
+}
+
+/* Image Wrapper */
+.carousel-images {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+/* Images */
+.carousel img {
+  width: 100%; /* Stretch image width to container */
+  height: auto; /* Adjust height to maintain aspect ratio */
+  object-fit: cover; /* Ensure image scales well */
+}     
+      
+      
+      
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+/* Header */
+header {
+  position: relative;
+  width: 100%;
+  height: 40vh; /* 30% of the viewport height */
+  background: url("Images/IMG-20241201-WA0001.jpg") no-repeat center center;
+  background-size: cover; /* Ensures the image covers the header area */
+}
+
+    .search-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      width: 60%;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 0;
+    }
+
+    .search-bar button {
+      background-color: #000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 0;
+    }
+
+    .search-bar button:hover {
+      background-color: #f4a261;
+    }
+    
+    
+    
+
+    /* Menu */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 15px 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #444;
+      color: #f4a261;
+    }
+
+/* Carousel Container */
+.carousel {
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  position: relative;
+  margin: 0; /* Removes unwanted spacing */
+}
+
+/* Image Wrapper */
+.carousel-images {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+/* Images */
+.carousel img {
+  width: 100%; /* Stretch image width to container */
+  height: 100%; /* Stretch image height to container */
+  object-fit: cover; /* Scale and crop image to fill container */
+}
+
+.welcome {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+ :root {
+  --popup-bg: #fff;
+  --popup-font: Arial, sans-serif;
+  --popup-font-size: 16px;
+  --popup-text-color: #333;
+  --button-bg: #000;
+  --button-text-color: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: var(--popup-font);
+}
+
+.products {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px;
+}
+
+.product {
+  width: 55%;
+  max-width: 280px;
+  min-width: 200px;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.more-button, 
+.popup-footer button {
+  margin-top: auto;
+  background-color: #2E8B57;
+  color: var(--button-text-color);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.more-button:hover, 
+.popup-footer button:hover {
+  transform: translateY(-5px);
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  max-width: 700px;
+  height: 70%;
+  max-height: 600px;
+  background-color: var(--popup-bg);
+  color: var(--popup-text-color);
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.popup-content {
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+  height: calc(100% - 100px); /* Remaining height for footer */
+}
+
+.popup-footer {
+  position: sticky;
+  bottom: 0;
+  background: #f4f4f4;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+} 
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+}
+
+footer h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-about,
+.footer-contact,
+.footer-newsletter {
+  flex: 1 1 30%;
+  margin: 10px;
+}
+
+.footer-legal {
+  flex: 1 1 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.social-icons img {
+  width: 24px;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+footer a {
+  color: #1abc9c;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Newsletter Form */
+.footer-newsletter form {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.footer-newsletter input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+}
+
+.footer-newsletter button {
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.footer-newsletter button:hover {
+  background-color: #16a085;
+}
+
+footer p {
+  margin: 5px 0;
+}
+  
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="categories.html">CATEGORIES</a>
+    <a href="resources.html">RESOURCES</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section class="welcome">
+    <h1>Welcome to HealthInTechHub</h1>
+    <p>Welcome to HealthInTechHub, your trusted source for reviews, insights, and recommendations on health and technology products. Discover how cutting-edge gadgets and health solutions can transform your life, all backed by AI-enhanced tools for a seamless user experience.
+</p>
+  </section>
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="carousel-images">
+      <img src="Images/IMG-20241201-WA0002.jpg" alt="Description of Image">
+<img src="Images/IMG-20241201-WA0003.jpg" alt="Description of Image">
+<img src="Images/IMG-20241201-WA0001.jpg" alt="Description of Image">
+    </div>
+  </div>
+
+<!-- Product Containers -->
+<section class="products">
+  <!-- First Product -->
+  <div class="product">
+<img src="Images/shopping (78).webp" alt="Description of Image">
+    <h3>3KGs dumbells</h3>
+    <button class="more-button" onclick="showPopup('omega3-popup')">More</button>
+  </div>
+
+  <!-- First Product Popup -->
+  <div class="overlay" id="overlay-omega3"></div>
+  <div class="popup" id="omega3-popup">
+    <h2>3KGs dumbells</h2>
+    <div class="popup-content">
+      <h3>Details</h3>
+      <p>Omega 3 is an essential nutrient that helps in the proper functioning of various organs in the body, including the heart, brain, and eyes.</p>
+      <h3>Advantages</h3>
+      <p>- Improves heart health<br>- Supports brain function<br>- Reduces inflammation</p>
+      <h3>Side Effects</h3>
+      <p>- Upset stomach<br>- Risk of bleeding in high doses</p>
+    </div>
+    <div class="popup-footer">
+      <p>Price: KSHS150</p>
+      <p>Contact: +254 773 523910</p>
+      <button onclick="closePopup('omega3-popup')">Exit</button>
+    </div>
+  </div>
+
+  <!-- Second Product -->
+  <div class="product">
+<img src="Images/download (19.webp" alt="Description of Image">
+    <h3>Orimo Smart watch</h3>
+    <button class="more-button" onclick="showPopup('vitaminc-popup')">More</button>
+  </div>
+
+  <!-- Second Product Popup -->
+  <div class="overlay" id="overlay-vitaminc"></div>
+  <div class="popup" id="vitaminc-popup">
+    <h2>Orimo Smart watch</h2>
+    <div class="popup-content">
+      <h3>Details</h3>
+      <p>Vitamin C helps to boost immunity, promote glowing skin, and combat oxidative stress in the body.</p>
+      <h3>Advantages</h3>
+      <p>- Enhances immunity<br>- Promotes collagen production<br>- Acts as an antioxidant</p>
+      <h3>Side Effects</h3>
+      <p>- May cause nausea in large doses<br>- Upset stomach</p>
+    </div>
+    <div class="popup-footer">
+      <p>Price: KSHS1000</p>
+      <p>Contact: +254 773 523910</p>
+      <button onclick="closePopup('vitaminc-popup')">Exit</button>
+    </div>
+  </div>
+  
+    <!-- First Product -->
+  <div class="product">
+<img src="Images/71YQ82xmr0L._AC_UL640_FMwebp_QL65_.webp" alt="Description of Image">
+    <h3>Taylor Smart weight machine</h3>
+    <button class="more-button" onclick="showPopup('omega3-popup')">More</button>
+  </div>
+
+  <!-- First Product Popup -->
+  <div class="overlay" id="overlay-omega3"></div>
+  <div class="popup" id="omega3-popup">
+    <h2>Taylor Smart weight machine</h2>
+    <div class="popup-content">
+      <h3>Details</h3>
+      <p>Omega 3 is an essential nutrient that helps in the proper functioning of various organs in the body, including the heart, brain, and eyes.</p>
+      <h3>Advantages</h3>
+      <p>- Improves heart health<br>- Supports brain function<br>- Reduces inflammation</p>
+      <h3>Side Effects</h3>
+      <p>- Upset stomach<br>- Risk of bleeding in high doses</p>
+    </div>
+    <div class="popup-footer">
+      <p>Price: KSHS1500</p>
+      <p>Contact: +254 773 523910</p>
+      <button onclick="closePopup('omega3-popup')">Exit</button>
+    </div>
+  </div>
+  
+    <!-- First Product -->
+  <div class="product">
+<img src="Images/shopping (70).webp" alt="Description of Image">
+    <h3>Jumbo Oats</h3>
+    <button class="more-button" onclick="showPopup('omega3-popup')">More</button>
+  </div>
+
+  <!-- First Product Popup -->
+  <div class="overlay" id="overlay-omega3"></div>
+  <div class="popup" id="omega3-popup">
+    <h2>Jumbo Oats</h2>
+    <div class="popup-content">
+      <h3>Details</h3>
+      <p>Omega 3 is an essential nutrient that helps in the proper functioning of various organs in the body, including the heart, brain, and eyes.</p>
+      <h3>Advantages</h3>
+      <p>- Improves heart health<br>- Supports brain function<br>- Reduces inflammation</p>
+      <h3>Side Effects</h3>
+      <p>- Upset stomach<br>- Risk of bleeding in high doses</p>
+    </div>
+    <div class="popup-footer">
+      <p>Price: KSHS1500</p>
+      <p>Contact: +254 773 523910</p>
+      <button onclick="closePopup('omega3-popup')">Exit</button>
+    </div>
+  </div>
+  
+    <!-- First Product -->
+  <div class="product">
+    <img src="Images/images.jpeg" alt="Omega 3">
+    <h3>L-Arginine</h3>
+    <button class="more-button" onclick="showPopup('omega3-popup')">More</button>
+  </div>
+
+  <!-- First Product Popup -->
+  <div class="overlay" id="overlay-omega3"></div>
+  <div class="popup" id="omega3-popup">
+    <h2>L-Arginine</h2>
+    <div class="popup-content">
+      <h3>Details</h3>
+      <p>Omega 3 is an essential nutrient that helps in the proper functioning of various organs in the body, including the heart, brain, and eyes.</p>
+      <h3>Advantages</h3>
+      <p>- Improves heart health<br>- Supports brain function<br>- Reduces inflammation</p>
+      <h3>Side Effects</h3>
+      <p>- Upset stomach<br>- Risk of bleeding in high doses</p>
+    </div>
+    <div class="popup-footer">
+      <p>Price: KSHS1500</p>
+      <p>Contact: +254 773 523910</p>
+      <button onclick="closePopup('omega3-popup')">Exit</button>
+    </div>
+  </div>
+  
+    <!-- First Product -->
+  <div class="product">
+    <img src="Images/download 6.webp" alt="Omega 3">
+    <h3>6KGs Dumbell</h3>
+    <button class="more-button" onclick="showPopup('omega3-popup')">More</button>
+  </div>
+
+  <!-- First Product Popup -->
+  <div class="overlay" id="overlay-omega3"></div>
+  <div class="popup" id="omega3-popup">
+    <h2>6KGs Dumbell</h2>
+    <div class="popup-content">
+      <h3>Details</h3>
+      <p>Omega 3 is an essential nutrient that helps in the proper functioning of various organs in the body, including the heart, brain, and eyes.</p>
+      <h3>Advantages</h3>
+      <p>- Improves heart health<br>- Supports brain function<br>- Reduces inflammation</p>
+      <h3>Side Effects</h3>
+      <p>- Upset stomach<br>- Risk of bleeding in high doses</p>
+    </div>
+    <div class="popup-footer">
+      <p>Price: KSHS1500</p>
+      <p>Contact: +254 773 523910</p>
+      <button onclick="closePopup('omega3-popup')">Exit</button>
+    </div>
+  </div>
+  
+  
+</section>
+
+
+
+<footer>
+  <div class="footer-about">
+    <h3>About Us</h3>
+    <p>At HealthInTechHub, we’re passionate about empowering individuals to make informed decisions in health and technology.</p>
+  </div>
+
+  <div class="footer-contact">
+    <h3>Contact Us</h3>
+    <p>Phone: <a href="tel:+254773523910">+254 773523910</a></p>
+    <p>Email: <a href="mailto:healthintechhub@gmail.com">healthintechhub@gmail.com</a></p>
+    <div class="social-icons">
+      <a href="#"><img src="Images/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="Images/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="Images/whatsapp.png" alt="whatsapp"></a>
+      <a href="#"><img src="Images/instagram.png" alt="instagram"></a>
+      <a href="#"><img src="Images/new-call.png" alt="call"></a>
+    </div>
+  </div>
+
+  <div class="footer-newsletter">
+    <h3>Newsletter</h3>
+    <p>Subscribe to stay updated on the latest health and technology trends.</p>
+    <form>
+      <input type="email" name="email" placeholder="healthintechhub@gmail.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+  <div class="footer-legal">
+    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    <p>© 2024 HealthInTechHub. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+<script>
+function showPopup(popupId) {
+  document.getElementById(popupId).style.display = "block";
+  document.getElementById(`overlay-${popupId}`).style.display = "block";
+}
+
+function closePopup(popupId) {
+  document.getElementById(popupId).style.display = "none";
+  document.getElementById(`overlay-${popupId}`).style.display = "none";
+}
+
+  // Carousel functionality
+  let currentIndex = 0;
+  const images = document.querySelector('.carousel-images');
+  const totalImages = document.querySelectorAll('.carousel img').length;
+
+  function moveCarousel() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    images.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  setInterval(moveCarousel, 5000); // Carousel auto-slide every 10 seconds
+
+  // Hover effect for the menu
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      link.style.color = '#f4a261';
+      link.style.transform = 'scale(1.1)';
+      link.style.transition = 'transform 0.3s, color 0.3s';
+    });
+
+    link.addEventListener('mouseleave', () => {
+      link.style.color = 'white';
+      link.style.transform = 'scale(1)';
+    });
+  });
+</script>
+</html>
